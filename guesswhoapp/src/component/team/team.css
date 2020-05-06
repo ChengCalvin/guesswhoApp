@@ -1,4 +1,17 @@
 .Team {
   border: 1px solid black;
-  margin: 2px 500px;
+  margin: 2px 700px;
+  background-color: rgb(157, 243, 246);
+}
+
+.Team button {
+  border-radius: 3px;
+  background-color: lightblue;
+  font-weight: bold;
+}
+
+.Result {
+  border: 1px solid black;
+  margin: 2px 750px;
+  background-color: rgb(157, 243, 246);
 }

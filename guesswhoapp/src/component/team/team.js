@@ -7,7 +7,7 @@ import "./team.css";
 class Team extends Component {
   state = {
     data: [],
-    answer: false,
+    answer: "",
   };
   componentDidMount = () => {
     axios.get("http://localhost:5000/gamedata").then((res) => {
@@ -20,14 +20,14 @@ class Team extends Component {
     if (event.target.value === this.state.data.winner) {
       //change styling of background
       console.log("Correct");
-
+      this.setState({ answer: "Correct" });
       axios.get("http://localhost:5000/gamedata").then((res) => {
         this.setState({ data: res.data });
         console.log(res.data);
       });
     } else {
       console.log("Wrong");
-
+      this.setState({ answer: "Wrong" });
       axios.get("http://localhost:5000/gamedata").then((res) => {
         this.setState({ data: res.data });
         console.log(res.data);
@@ -53,6 +53,9 @@ class Team extends Component {
           {this.state.data.teamB?.map((champ, index) => (
             <Champions key={index} data={champ} />
           ))}
+        </div>
+        <div className="Result">
+          <h2>Result : {this.state.answer}</h2>
         </div>
       </div>
     );
