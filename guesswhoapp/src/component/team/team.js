@@ -10,7 +10,7 @@ class Team extends Component {
     answer: "",
   };
   componentDidMount = () => {
-    axios.get("http://localhost:5000/gamedata").then((res) => {
+    axios.get("https://guessthelolteam.herokuapp.com/gamedata").then((res) => {
       this.setState({ data: res.data });
       console.log(res.data);
     });
@@ -21,17 +21,21 @@ class Team extends Component {
       //change styling of background
       console.log("Correct");
       this.setState({ answer: "Correct" });
-      axios.get("http://localhost:5000/gamedata").then((res) => {
-        this.setState({ data: res.data });
-        console.log(res.data);
-      });
+      axios
+        .get("https://guessthelolteam.herokuapp.com/gamedata")
+        .then((res) => {
+          this.setState({ data: res.data });
+          console.log(res.data);
+        });
     } else {
       console.log("Wrong");
       this.setState({ answer: "Wrong" });
-      axios.get("http://localhost:5000/gamedata").then((res) => {
-        this.setState({ data: res.data });
-        console.log(res.data);
-      });
+      axios
+        .get("https://guessthelolteam.herokuapp.com/gamedata")
+        .then((res) => {
+          this.setState({ data: res.data });
+          console.log(res.data);
+        });
     }
   };
 
