@@ -1,4 +1,6 @@
 .Championdisplay {
   padding: 2px;
   display: block;
+  padding: 5px;
+  max-width: 300px;
 }
