@@ -1,10 +1,13 @@
 .Team {
   border: 1px solid black;
-  margin: 2px 700px;
+  margin: 2px;
   background-color: rgb(157, 243, 246);
+  width: 500px;
+  padding: 10px;
 }
 
 .Team button {
+  display: block;
   border-radius: 3px;
   background-color: lightblue;
   font-weight: bold;
@@ -14,10 +17,4 @@
   border: 1px solid black;
   margin: 2px 750px;
   background-color: rgb(157, 243, 246);
-}
-
-@media (min-width: 480px) {
-  .Team {
-    min-width: 320px;
-  }
 }
