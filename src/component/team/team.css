@@ -15,3 +15,9 @@
   margin: 2px 750px;
   background-color: rgb(157, 243, 246);
 }
+
+@media (min-width: 480px) {
+  .Team {
+    min-width: 320px;
+  }
+}
