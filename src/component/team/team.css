@@ -4,6 +4,7 @@
   background-color: rgb(157, 243, 246);
   width: 500px;
   padding: 10px;
+  display: inline-block;
 }
 
 .Team button {
