@@ -6,7 +6,7 @@ import "./App.css";
 function App() {
   return (
     <div className="App">
-      <h1>Guess which team won</h1>
+      <h1>Guess which league of legend team won</h1>
       <Team />
     </div>
   );
