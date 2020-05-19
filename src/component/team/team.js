@@ -8,6 +8,7 @@ class Team extends Component {
   state = {
     data: [],
     answer: "",
+    correctAnswer: null,
   };
   componentDidMount = () => {
     axios.get("https://guessthelolteam.herokuapp.com/gamedata").then((res) => {
@@ -17,10 +18,13 @@ class Team extends Component {
   };
 
   answerClickHandler = (event) => {
+    let correctAnswerCounter = 0;
     if (event.target.value === this.state.data.winner) {
       //change styling of background
       console.log("Correct");
       this.setState({ answer: "Correct" });
+      correctAnswerCounter += 1;
+      this.setState({ correctAnswer: correctAnswerCounter });
       axios
         .get("https://guessthelolteam.herokuapp.com/gamedata")
         .then((res) => {
@@ -60,6 +64,9 @@ class Team extends Component {
         </div>
         <div className="Result">
           <h2>Result : {this.state.answer}</h2>
+        </div>
+        <div>
+          <h2 className="Result">Score: {this.state.correctAnswer}</h2>
         </div>
       </div>
     );
