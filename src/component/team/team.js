@@ -9,6 +9,7 @@ class Team extends Component {
     data: [],
     answer: "",
     correctAnswer: 0,
+    isButtonDisabled: false,
   };
   componentDidMount = () => {
     axios.get("https://guessthelolteam.herokuapp.com/gamedata").then((res) => {
@@ -23,6 +24,7 @@ class Team extends Component {
       console.log("Correct");
       this.setState({ answer: "Correct" });
       this.setState({ correctAnswer: this.state.correctAnswer + 1 });
+      this.setState({ isButtonDisabled: true });
       // axios
       //   .get("https://guessthelolteam.herokuapp.com/gamedata")
       //   .then((res) => {
@@ -32,6 +34,7 @@ class Team extends Component {
     } else {
       console.log("Wrong");
       this.setState({ answer: "Wrong" });
+      this.setState({ isButtonDisabled: true });
       // axios
       //   .get("https://guessthelolteam.herokuapp.com/gamedata")
       //   .then((res) => {
@@ -44,15 +47,20 @@ class Team extends Component {
   newTeamHandler = () => {
     axios.get("https://guessthelolteam.herokuapp.com/gamedata").then((res) => {
       this.setState({ data: res.data });
-      console.log(res.data);
+      //console.log(res.data);
     });
+    this.setState({ isButtonDisabled: false });
   };
 
   render() {
     return (
       <div>
         <div className="Team">
-          <button onClick={this.answerClickHandler} value="Team A">
+          <button
+            onClick={this.answerClickHandler}
+            value="Team A"
+            disabled={this.state.isButtonDisabled}
+          >
             Team A
           </button>
           {this.state.data.teamA?.map((champ, index) => (
@@ -60,7 +68,11 @@ class Team extends Component {
           ))}
         </div>
         <div className="Team">
-          <button onClick={this.answerClickHandler} value="Team B">
+          <button
+            onClick={this.answerClickHandler}
+            value="Team B"
+            disabled={this.state.isButtonDisabled}
+          >
             Team B
           </button>
           {this.state.data.teamB?.map((champ, index) => (

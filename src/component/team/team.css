@@ -25,3 +25,8 @@
   background-color: lightblue;
   font-weight: bold;
 }
+
+:disabled {
+  background-color: grey;
+  color: white;
+}
