@@ -18,3 +18,10 @@
   display: inherit;
   color: white;
 }
+
+.Result button {
+  display: inline;
+  border-radius: 3px;
+  background-color: lightblue;
+  font-weight: bold;
+}

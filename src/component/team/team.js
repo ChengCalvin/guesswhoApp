@@ -23,22 +23,29 @@ class Team extends Component {
       console.log("Correct");
       this.setState({ answer: "Correct" });
       this.setState({ correctAnswer: this.state.correctAnswer + 1 });
-      axios
-        .get("https://guessthelolteam.herokuapp.com/gamedata")
-        .then((res) => {
-          this.setState({ data: res.data });
-          console.log(res.data);
-        });
+      // axios
+      //   .get("https://guessthelolteam.herokuapp.com/gamedata")
+      //   .then((res) => {
+      //     this.setState({ data: res.data });
+      //     console.log(res.data);
+      //   });
     } else {
       console.log("Wrong");
       this.setState({ answer: "Wrong" });
-      axios
-        .get("https://guessthelolteam.herokuapp.com/gamedata")
-        .then((res) => {
-          this.setState({ data: res.data });
-          console.log(res.data);
-        });
+      // axios
+      //   .get("https://guessthelolteam.herokuapp.com/gamedata")
+      //   .then((res) => {
+      //     this.setState({ data: res.data });
+      //     console.log(res.data);
+      //   });
     }
+  };
+
+  newTeamHandler = () => {
+    axios.get("https://guessthelolteam.herokuapp.com/gamedata").then((res) => {
+      this.setState({ data: res.data });
+      console.log(res.data);
+    });
   };
 
   render() {
@@ -62,6 +69,7 @@ class Team extends Component {
         </div>
         <div className="Result">
           <h2>Result : {this.state.answer}</h2>
+          <button onClick={this.newTeamHandler}>Next</button>
         </div>
         <div>
           <h2 className="Result">Score: {this.state.correctAnswer}</h2>
