@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import Champions from "../champions/champions";
 import axios from "axios";
+import Spinner from "../UI/spinner";
 import "./team.css";
 
 //manipulate data fetching and displaying of team choice
@@ -10,8 +11,11 @@ class Team extends Component {
     answer: "",
     correctAnswer: 0,
     isButtonDisabled: false,
+    isloading: false,
   };
+  //fetching the data
   componentDidMount = () => {
+    this.setState({ isloading: true });
     axios.get("https://guessthelolteam.herokuapp.com/gamedata").then((res) => {
       this.setState({ data: res.data });
       console.log(res.data);
@@ -45,6 +49,7 @@ class Team extends Component {
   };
 
   newTeamHandler = () => {
+    this.setState({ isloading: true });
     axios.get("https://guessthelolteam.herokuapp.com/gamedata").then((res) => {
       this.setState({ data: res.data });
       //console.log(res.data);
@@ -53,32 +58,43 @@ class Team extends Component {
   };
 
   render() {
+    let teamLoad = null;
+    if (this.state.isloading) {
+      teamLoad = <Spinner />;
+    }
+    if (this.state.data) {
+      teamLoad = (
+        <React.Fragment>
+          <div className="Team">
+            <button
+              onClick={this.answerClickHandler}
+              value="Team A"
+              disabled={this.state.isButtonDisabled}
+            >
+              Team A
+            </button>
+            {this.state.data.teamA?.map((champ, index) => (
+              <Champions key={index} data={champ} />
+            ))}
+          </div>
+          <div className="Team">
+            <button
+              onClick={this.answerClickHandler}
+              value="Team B"
+              disabled={this.state.isButtonDisabled}
+            >
+              Team B
+            </button>
+            {this.state.data.teamB?.map((champ, index) => (
+              <Champions key={index} data={champ} />
+            ))}
+          </div>
+        </React.Fragment>
+      );
+    }
     return (
       <div>
-        <div className="Team">
-          <button
-            onClick={this.answerClickHandler}
-            value="Team A"
-            disabled={this.state.isButtonDisabled}
-          >
-            Team A
-          </button>
-          {this.state.data.teamA?.map((champ, index) => (
-            <Champions key={index} data={champ} />
-          ))}
-        </div>
-        <div className="Team">
-          <button
-            onClick={this.answerClickHandler}
-            value="Team B"
-            disabled={this.state.isButtonDisabled}
-          >
-            Team B
-          </button>
-          {this.state.data.teamB?.map((champ, index) => (
-            <Champions key={index} data={champ} />
-          ))}
-        </div>
+        {teamLoad}
         <div className="Result">
           <h2>Result : {this.state.answer}</h2>
           <button onClick={this.newTeamHandler}>Next</button>
