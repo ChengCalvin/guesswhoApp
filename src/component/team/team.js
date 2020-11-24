@@ -11,11 +11,11 @@ class Team extends Component {
     answer: "",
     correctAnswer: 0,
     isButtonDisabled: false,
-    isloading: false,
+    isloading: true,
   };
-  //fetching the data
+  
   componentDidMount = () => {
-    this.setState({ isloading: true });
+    this.setState({ isloading: false });
     axios.get("https://guessthelolteam.herokuapp.com/gamedata").then((res) => {
       this.setState({ data: res.data });
       console.log(res.data);
