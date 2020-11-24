@@ -4,24 +4,17 @@
   width: 60%;
   margin: auto;
 }
-
 .Team {
-  border: 1px solid black;
-  margin: 2px;
-  background-color: rgb(0, 0, 0);
   width: 350px;
-  padding: 10px;
-  display: inline-block;
-}
-
-.Team:hover {
-  cursor: pointer;
 }
 
 .Team button {
   display: inline;
   background-color: black;
   border-color: none;
+  cursor: pointer;
+  width: 100%;
+  padding: 1.5rem;
 }
 
 .Result {
@@ -40,4 +33,5 @@
 :disabled {
   background-color: grey;
   color: white;
+  cursor: not-allowed;
 }

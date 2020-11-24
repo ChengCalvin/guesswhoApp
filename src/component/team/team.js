@@ -10,33 +10,31 @@ class Team extends Component {
     answer: "",
     correctAnswer: 0,
     isButtonDisabled: false,
-    isloading: false,
   };
 
   componentDidMount = () => {
     this.setState({ isloading: true });
     axios.get("https://guessthelolteam.herokuapp.com/gamedata").then((res) => {
-      this.setState({ data: res.data });
-      this.setState({ isloading: false });
+      this.setState({ data: res.data, isloading: false });
     });
   };
 
   answerClickHandler = (event) => {
     if (event.target.value === this.state.data.winner) {
-      this.setState({ answer: "Correct" });
-      this.setState({ correctAnswer: this.state.correctAnswer + 1 });
-      this.setState({ isButtonDisabled: true });
+      this.setState({
+        answer: "Correct",
+        correctAnswer: this.state.correctAnswer + 1,
+        isButtonDisabled: true,
+      });
     } else {
-      this.setState({ answer: "Wrong" });
-      this.setState({ isButtonDisabled: true });
+      this.setState({ answer: "Wrong", isButtonDisabled: true });
     }
   };
 
   newTeamHandler = () => {
     this.setState({ isloading: true });
     axios.get("https://guessthelolteam.herokuapp.com/gamedata").then((res) => {
-      this.setState({ data: res.data });
-      this.setState({ isloading: false });
+      this.setState({ data: res.data, isloading: false });
     });
     this.setState({ isButtonDisabled: false });
   };
