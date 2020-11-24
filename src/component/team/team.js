@@ -50,11 +50,10 @@ class Team extends Component {
             value="Team A"
             disabled={this.state.isButtonDisabled}
           >
-            Team A
+            {this.state.data.teamA?.map((champ, index) => (
+              <Champions key={index} data={champ} />
+            ))}
           </button>
-          {this.state.data.teamA?.map((champ, index) => (
-            <Champions key={index} data={champ} />
-          ))}
         </div>
         <div className="Team">
           <button
@@ -62,11 +61,10 @@ class Team extends Component {
             value="Team B"
             disabled={this.state.isButtonDisabled}
           >
-            Team B
+            {this.state.data.teamB?.map((champ, index) => (
+              <Champions key={index} data={champ} />
+            ))}
           </button>
-          {this.state.data.teamB?.map((champ, index) => (
-            <Champions key={index} data={champ} />
-          ))}
         </div>
       </div>
     );

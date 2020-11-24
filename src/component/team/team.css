@@ -14,12 +14,14 @@
   display: inline-block;
 }
 
+.Team:hover {
+  cursor: pointer;
+}
+
 .Team button {
   display: inline;
-  border-radius: 3px;
-  background-color: lightblue;
-  font-weight: bold;
-  border-color: lightblue;
+  background-color: black;
+  border-color: none;
 }
 
 .Result {
