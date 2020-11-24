@@ -23,7 +23,7 @@ class Team extends Component {
   componentDidUpdate = (_prevProps, prevState) => {
     if (prevState.isButtonDisabled !== this.state.isButtonDisabled) {
       this.setState({isloading: true});
-    }
+    } else this.setState({isloading: false});
   }
 
   answerClickHandler = (event) => {
