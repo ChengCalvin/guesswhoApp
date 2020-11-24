@@ -4,7 +4,6 @@ import axios from "axios";
 import Spinner from "../UI/spinner";
 import "./team.css";
 
-//manipulate data fetching and displaying of team choice
 class Team extends Component {
   state = {
     data: [],
@@ -18,26 +17,28 @@ class Team extends Component {
     this.setState({ isloading: false });
     axios.get("https://guessthelolteam.herokuapp.com/gamedata").then((res) => {
       this.setState({ data: res.data });
-      console.log(res.data);
     });
   };
 
+  componentDidUpdate = (_prevProps, prevState) => {
+    if (prevState.isButtonDisabled !== this.state.isButtonDisabled) {
+      this.setState({isloading: true});
+    }
+  }
+
   answerClickHandler = (event) => {
     if (event.target.value === this.state.data.winner) {
-      //change styling of background
-      console.log("Correct");
       this.setState({ answer: "Correct" });
       this.setState({ correctAnswer: this.state.correctAnswer + 1 });
       this.setState({ isButtonDisabled: true });
     } else {
-      console.log("Wrong");
       this.setState({ answer: "Wrong" });
       this.setState({ isButtonDisabled: true });
     }
   };
 
   newTeamHandler = () => {
-    this.setState({ isloading: true });
+    this.setState({ isloading: false });
     axios.get("https://guessthelolteam.herokuapp.com/gamedata").then((res) => {
       this.setState({ data: res.data });
     });
