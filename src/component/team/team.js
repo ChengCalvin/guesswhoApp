@@ -35,7 +35,7 @@ class Team extends Component {
     this.setState({ isloading: true });
     axios.get("https://guessthelolteam.herokuapp.com/gamedata").then((res) => {
       this.setState({ data: res.data, isloading: false });
-      console.log(data);
+      console.log(this.state.data);
     });
     this.setState({ isButtonDisabled: false });
   };
