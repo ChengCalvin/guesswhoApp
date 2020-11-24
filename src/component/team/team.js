@@ -10,7 +10,6 @@ class Team extends Component {
     answer: "",
     correctAnswer: 0,
     isButtonDisabled: false,
-    isloading: true,
   };
   
   componentDidMount = () => {
@@ -19,12 +18,6 @@ class Team extends Component {
       this.setState({ data: res.data });
     });
   };
-
-  componentDidUpdate = (_prevProps, prevState) => {
-    if (prevState.isButtonDisabled !== this.state.isButtonDisabled) {
-      this.setState({isloading: true});
-    } else this.setState({isloading: false});
-  }
 
   answerClickHandler = (event) => {
     if (event.target.value === this.state.data.winner) {
@@ -38,7 +31,6 @@ class Team extends Component {
   };
 
   newTeamHandler = () => {
-    this.setState({ isloading: false });
     axios.get("https://guessthelolteam.herokuapp.com/gamedata").then((res) => {
       this.setState({ data: res.data });
     });
@@ -77,7 +69,7 @@ class Team extends Component {
     
     return (
       <div>
-        {this.state.isloading ? <Spinner /> : teamLoad}
+        {this.state.data ? <Spinner /> : teamLoad}
         <div className="Result">
           <h2>Result : {this.state.answer}</h2>
           <button onClick={this.newTeamHandler}>Next</button>
