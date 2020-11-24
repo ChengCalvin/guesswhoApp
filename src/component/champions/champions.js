@@ -1,5 +1,10 @@
 import React from "react";
+import "./champions.css";
 
-const Champions = (props) => <div>{props.data}</div>;
+const Champions = (props) => (
+  <div className="championcontainer">
+    <div>{props.data}</div>
+  </div>
+);
 
 export default Champions;
