@@ -19,9 +19,10 @@ class Team extends Component {
     });
   };
 
-  answerClickHandler = (event) => {
-    console.log("event value", event.target);
-    if (event.target.value === this.state.data.winner) {
+  answerClickHandler = (_event, team) => {
+    console.log("team", team);
+
+    if (team === this.state.data.winner) {
       this.setState({
         answer: "Correct",
         correctAnswer: this.state.correctAnswer + 1,
@@ -46,7 +47,7 @@ class Team extends Component {
       <div className="teamcontainer">
         <div className="Team">
           <button
-            onClick={this.answerClickHandler}
+            onClick={this.answerClickHandler(_, "Team A")}
             value="Team A"
             disabled={this.state.isButtonDisabled}
           >
@@ -57,7 +58,7 @@ class Team extends Component {
         </div>
         <div className="Team">
           <button
-            onClick={this.answerClickHandler}
+            onClick={this.answerClickHandler(_, "Team B")}
             value="Team B"
             disabled={this.state.isButtonDisabled}
           >
