@@ -45,12 +45,7 @@ class Team extends Component {
   };
 
   render() {
-    let teamLoad = null;
-    if (this.state.isloading) {
-      teamLoad = <Spinner />;
-    }
-    if (this.state.data) {
-      teamLoad = (
+    const  teamLoad = (
         <React.Fragment>
           <div className="Team">
             <button
@@ -78,10 +73,10 @@ class Team extends Component {
           </div>
         </React.Fragment>
       );
-    }
+    
     return (
       <div>
-        {teamLoad}
+        {this.state.isloading ? <Spinner /> : teamLoad}
         <div className="Result">
           <h2>Result : {this.state.answer}</h2>
           <button onClick={this.newTeamHandler}>Next</button>
