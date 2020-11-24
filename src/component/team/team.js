@@ -20,8 +20,7 @@ class Team extends Component {
   };
 
   answerClickHandler = (event) => {
-    console.log("event value", event.target.value);
-    console.log("this.state.data.winner", this.state.data.winner);
+    console.log("event value", event.target);
     if (event.target.value === this.state.data.winner) {
       this.setState({
         answer: "Correct",
