@@ -10,12 +10,14 @@ class Team extends Component {
     answer: "",
     correctAnswer: 0,
     isButtonDisabled: false,
+    isloading: false,
   };
   
   componentDidMount = () => {
-    this.setState({ isloading: false });
+    this.setState({ isloading: true });
     axios.get("https://guessthelolteam.herokuapp.com/gamedata").then((res) => {
       this.setState({ data: res.data });
+      this.setState({isloading: false});
     });
   };
 
@@ -31,8 +33,10 @@ class Team extends Component {
   };
 
   newTeamHandler = () => {
+    this.setState({isloading: true});
     axios.get("https://guessthelolteam.herokuapp.com/gamedata").then((res) => {
       this.setState({ data: res.data });
+      this.setState({isloading: false});
     });
     this.setState({ isButtonDisabled: false });
   };
@@ -69,7 +73,7 @@ class Team extends Component {
     
     return (
       <div>
-        {this.state.data ? <Spinner /> : teamLoad}
+        {this.state.isloading ? <Spinner /> : teamLoad}
         <div className="Result">
           <h2>Result : {this.state.answer}</h2>
           <button onClick={this.newTeamHandler}>Next</button>
