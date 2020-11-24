@@ -25,29 +25,16 @@ class Team extends Component {
       this.setState({ answer: "Correct" });
       this.setState({ correctAnswer: this.state.correctAnswer + 1 });
       this.setState({ isButtonDisabled: true });
-      // axios
-      //   .get("https://guessthelolteam.herokuapp.com/gamedata")
-      //   .then((res) => {
-      //     this.setState({ data: res.data });
-      //     console.log(res.data);
-      //   });
     } else {
       console.log("Wrong");
       this.setState({ answer: "Wrong" });
       this.setState({ isButtonDisabled: true });
-      // axios
-      //   .get("https://guessthelolteam.herokuapp.com/gamedata")
-      //   .then((res) => {
-      //     this.setState({ data: res.data });
-      //     console.log(res.data);
-      //   });
     }
   };
 
   newTeamHandler = () => {
     axios.get("https://guessthelolteam.herokuapp.com/gamedata").then((res) => {
       this.setState({ data: res.data });
-      //console.log(res.data);
     });
     this.setState({ isButtonDisabled: false });
   };
