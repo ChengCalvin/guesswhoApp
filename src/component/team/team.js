@@ -19,7 +19,7 @@ class Team extends Component {
     });
   };
 
-  answerClickHandler = (_event, team) => {
+  answerClickHandler = (team) => {
     console.log("team", team);
 
     if (team === this.state.data.winner) {
@@ -47,7 +47,7 @@ class Team extends Component {
       <div className="teamcontainer">
         <div className="Team">
           <button
-            onClick={this.answerClickHandler(_, "Team A")}
+            onClick={this.answerClickHandler("Team A")}
             value="Team A"
             disabled={this.state.isButtonDisabled}
           >
@@ -58,7 +58,7 @@ class Team extends Component {
         </div>
         <div className="Team">
           <button
-            onClick={this.answerClickHandler(_, "Team B")}
+            onClick={this.answerClickHandler("Team B")}
             value="Team B"
             disabled={this.state.isButtonDisabled}
           >
