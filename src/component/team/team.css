@@ -20,10 +20,10 @@
 .resultcontainer {
   display: flex;
   justify-content: center;
+  align-items: center;
 }
 
 .resultbackground {
-  display: relative;
   width: 60%;
   height: 15rem;
   background-color: black;
@@ -31,7 +31,6 @@
 }
 
 .result {
-  display: absolute;
   color: white;
 }
 

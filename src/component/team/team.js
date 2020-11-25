@@ -71,7 +71,7 @@ class Team extends Component {
     return (
       <div>
         {this.state.isloading ? <Spinner /> : teamLoad}
-        <div>
+        <div className="resultcontainer">
           <div className="resultbackground">
             <div className="result">
               <h2>Result : {this.state.answer}</h2>
