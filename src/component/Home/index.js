@@ -9,7 +9,7 @@ const Homepage = () => {
     <>
       <div className="App">
         <Header />
-        <h1>Guess which league of legend team won</h1>
+        <h2>Guess which league of legend team won</h2>
         <Team />
       </div>
     </>

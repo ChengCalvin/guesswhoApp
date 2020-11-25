@@ -10,16 +10,10 @@ import "./App.css";
 const App = () => {
   return (
     <>
-      {/* <div className="App">
-          <Header />
-          <h1>Guess which league of legend team won</h1>
-          <Team />
-        </div> */}
-
       <Route exact path="/">
         <Homepage />
       </Route>
-      <Route path="/signup">
+      <Route path="/signuppage">
         <SignUpPage />
       </Route>
     </>

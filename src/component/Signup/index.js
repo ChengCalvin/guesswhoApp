@@ -6,7 +6,7 @@ const SignUpPage = () => {
   return (
     <div className="App">
       <Header />
-      <h1>signup</h1>
+      <h2>Enter your informations</h2>
     </div>
   );
 };
