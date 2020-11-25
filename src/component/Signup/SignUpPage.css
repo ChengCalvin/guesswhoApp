@@ -8,3 +8,12 @@ body {
 .App h2 {
   color: white;
 }
+
+.infocontainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  width: 60%;
+  height: fit-content;
+}
