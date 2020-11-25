@@ -16,4 +16,5 @@ body {
   justify-content: space-between;
   width: 60%;
   height: fit-content;
+  margin: auto;
 }

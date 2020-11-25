@@ -7,7 +7,7 @@ const SignUpPage = () => {
   return (
     <div className="App">
       <Header />
-      <h2>Enter your informations</h2>
+      <h2>Create Account</h2>
       <div className="infocontainer">
         <SignUpDetails />
       </div>

@@ -13,6 +13,8 @@ const SignUpDetails = () => {
 
   const inputChangeHandler = (event) => {
     setNewUser({ [event.target.name]: event.target.value });
+    console.log("name", event.target.name);
+    console.log("value", event.target.value);
   };
 
   const submitFormHandler = (event) => {
@@ -24,11 +26,11 @@ const SignUpDetails = () => {
       password_confirm: newUser.password_confirm,
     };
     console.log(user);
+    console.log("newUser", newUser);
   };
 
   return (
     <div>
-      <div>Create Account</div>
       <div>
         <input
           type="text"
@@ -74,7 +76,9 @@ const SignUpDetails = () => {
           onChange={inputChangeHandler}
         />
       </div>
-      <button onclick={submitFormHandler}>Create User</button>
+      <button type="button" onclick={submitFormHandler}>
+        Create User
+      </button>
     </div>
   );
 };
