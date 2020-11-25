@@ -8,3 +8,8 @@ body {
 .App h1 {
   color: white;
 }
+
+.header {
+  width: 100vw;
+  height: 3rem;
+}
