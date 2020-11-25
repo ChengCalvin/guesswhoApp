@@ -6,7 +6,7 @@ import "./App.css";
 const App = () => {
   return (
     <div className="App">
-      <header>
+      <header className="header">
         <title>League of Legend Team Guessing Game</title>
       </header>
       <h1>Guess which league of legend team won</h1>
