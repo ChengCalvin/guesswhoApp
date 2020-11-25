@@ -15,14 +15,19 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
+  background-color: black;
 }
 
 .headertitle {
   color: goldenrod;
   font-size: 1rem;
-  background-color: black;
 }
 
 .headertitle h1 {
   font-size: 1.5rem;
+}
+
+.flexaligntitleandbtn {
+  display: flex;
+  justify-content: space-between;
 }
