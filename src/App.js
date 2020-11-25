@@ -3,7 +3,7 @@ import React from "react";
 import Team from "./component/team/team";
 import SignUpButton from "./component/Signup/SignUpButton";
 import SignUpPage from "./component/Signup/SignUpPage";
-import { BrowserRouter as Router, Route } from "react-router-dom";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import "./App.css";
 
 const App = () => {
@@ -16,7 +16,10 @@ const App = () => {
           </div>
           <div>
             <Router>
-              <Route path="/signup" component={SignUpPage} />
+              <Switch>
+                <Route path="/" exact component={App} />
+                <Route path="/signup" component={SignUpPage} />
+              </Switch>
               <SignUpButton />
             </Router>
           </div>

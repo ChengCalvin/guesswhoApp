@@ -1,9 +1,12 @@
 import React from "react";
 import "./Signup.css";
+import { Link } from "react-router-dom";
 
 const SignUpButton = () => (
   <div>
-    <button className="signupbtn">Signup</button>
+    <Link to="/signuppage">
+      <button className="signupbtn">Signup</button>
+    </Link>
   </div>
 );
 
