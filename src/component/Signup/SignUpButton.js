@@ -6,9 +6,7 @@ const SignUpButton = () => {
   return (
     <div>
       <Link to="/signuppage">
-        <button onClick={historyTracker} className="signupbtn">
-          Signup
-        </button>
+        <button className="signupbtn">Signup</button>
       </Link>
     </div>
   );
