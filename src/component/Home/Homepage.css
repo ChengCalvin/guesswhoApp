@@ -1,0 +1,10 @@
+body {
+  background-image: url("../../images/summonerbackground.jpg");
+}
+.App {
+  text-align: center;
+}
+
+.App h1 {
+  color: white;
+}
