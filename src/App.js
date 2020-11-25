@@ -17,9 +17,6 @@ const App = () => {
                 <h1>League of Legend Team Guessing Game</h1>
               </div>
               <div>
-                <Switch>
-                  <Route path="/signup" component={SignUpPage} />
-                </Switch>
                 <SignUpButton />
               </div>
             </div>
@@ -27,6 +24,9 @@ const App = () => {
           <h1>Guess which league of legend team won</h1>
           <Team />
         </div>
+        <Switch>
+          <Route path="/signup" component={SignUpPage} />
+        </Switch>
       </Router>
     </>
   );
