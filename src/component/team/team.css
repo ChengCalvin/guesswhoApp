@@ -40,10 +40,10 @@
   position: relative;
   overflow: hidden;
   background-color: transparent;
-  width: 2rem;
-  height: 1rem;
-  font: 1.3rem;
+  width: 6rem;
+  height: 2rem;
   padding: 1rem;
+  color: white;
 }
 
 .result button:hover {
