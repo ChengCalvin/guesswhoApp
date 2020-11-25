@@ -1,6 +1,6 @@
 import React from "react";
 import Header from "../Header/Header";
-import "../../App.css";
+import "./SignUpPage.css";
 
 const SignUpPage = () => {
   return (
