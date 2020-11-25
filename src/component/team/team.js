@@ -71,13 +71,16 @@ class Team extends Component {
     return (
       <div>
         {this.state.isloading ? <Spinner /> : teamLoad}
-        <div className="resultbackground" />
-        <div className="result">
-          <h2>Result : {this.state.answer}</h2>
-          <button onClick={this.newTeamHandler}>Next</button>
-        </div>
         <div>
-          <h2 className="result">Score: {this.state.correctAnswer}</h2>
+          <div className="resultbackground">
+            <div className="result">
+              <h2>Result : {this.state.answer}</h2>
+              <button onClick={this.newTeamHandler}>Next</button>
+            </div>
+            <div>
+              <h2 className="result">Score: {this.state.correctAnswer}</h2>
+            </div>
+          </div>
         </div>
       </div>
     );
