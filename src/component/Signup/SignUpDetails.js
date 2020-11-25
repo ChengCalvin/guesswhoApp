@@ -76,7 +76,7 @@ const SignUpDetails = () => {
           onChange={inputChangeHandler}
         />
       </div>
-      <button type="button" onclick={submitFormHandler}>
+      <button type="button" onClick={submitFormHandler}>
         Create User
       </button>
     </div>
