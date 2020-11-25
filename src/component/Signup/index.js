@@ -1,11 +1,12 @@
 import React from "react";
 import Header from "../Header/Header";
+import "../../App.css";
 
 const SignUpPage = () => {
   return (
-    <div>
+    <div className="App">
       <Header />
-      <div>signup</div>
+      <h1>signup</h1>
     </div>
   );
 };
