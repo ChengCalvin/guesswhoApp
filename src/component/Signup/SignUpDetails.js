@@ -38,6 +38,7 @@ const SignUpDetails = () => {
       .post("https://guessthelolteam.herokuapp.com/api/users", user)
       .then((response) => {
         response.json();
+        console.log("response from axios: ", response.json());
       })
       .then((data) => {
         console.log(data);
