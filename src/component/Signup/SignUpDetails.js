@@ -14,6 +14,7 @@ const SignUpDetails = () => {
     email: "",
     password: "",
     password_confirm: "",
+    gameScore: 0,
   });
 
   const dispatch = useDispatch();
@@ -38,7 +39,8 @@ const SignUpDetails = () => {
     axios
       .post("https://guessthelolteam.herokuapp.com/api/users", user)
       .then((response) => {
-        response.json();
+        console.log("there is a response");
+        console.log(request);
         console.log("response from axios: ", response.json());
       })
       .then((data) => {
@@ -55,8 +57,10 @@ const SignUpDetails = () => {
   return (
     <div>
       <form className="form" onClick={submitFormHandler}>
+        {userState.errorMessage ? <div>{userState.errorMessage}</div> : <></>}
         <div>
           <input
+            className="inputfield"
             type="text"
             placeholder="First Name"
             name="firstName"
@@ -64,10 +68,10 @@ const SignUpDetails = () => {
             onChange={inputChangeHandler}
             required
           />
-          {userState.errorMessage ? <div>{userState.errorMessage}</div> : <></>}
         </div>
         <div>
           <input
+            className="inputfield"
             type="text"
             placeholder="Last Name"
             name="lastName"
@@ -75,10 +79,10 @@ const SignUpDetails = () => {
             onChange={inputChangeHandler}
             required
           />
-          {userState.errorMessage ? <div>{userState.errorMessage}</div> : <></>}
         </div>
         <div>
           <input
+            className="inputfield"
             type="text"
             placeholder="Your Rank: e.g Platinum 1"
             name="leagueRank"
@@ -89,6 +93,7 @@ const SignUpDetails = () => {
         </div>
         <div>
           <input
+            className="inputfield"
             type="text"
             placeholder="Email"
             name="email"
@@ -99,6 +104,7 @@ const SignUpDetails = () => {
         </div>
         <div>
           <input
+            className="inputfield"
             type="password"
             placeholder="password"
             name="password"
@@ -109,6 +115,7 @@ const SignUpDetails = () => {
         </div>
         <div>
           <input
+            className="inputfield"
             type="password"
             placeholder="Confirm Password"
             name="password_confirm"
