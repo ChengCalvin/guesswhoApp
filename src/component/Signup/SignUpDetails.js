@@ -28,7 +28,6 @@ const SignUpDetails = () => {
       password_confirm: newUser.password_confirm,
     };
 
-    //axios.post("/api/users", user).then(request);
     console.log(user);
   };
 
