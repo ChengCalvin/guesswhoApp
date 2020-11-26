@@ -4,7 +4,6 @@ import { useHistory } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { signupError } from "../../redux/action";
 
-// form, submit, call api endpoint and send data to database
 const SignUpDetails = () => {
   const userState = useSelector((state) => state.user);
   const [newUser, setNewUser] = useState({
@@ -38,7 +37,7 @@ const SignUpDetails = () => {
     axios
       .post("https://guessthelolteam.herokuapp.com/api/users", user)
       .then((response) => {
-        console.log("Post Response: ", response);
+        response.json();
       })
       .then((data) => {
         if (data.success) {
@@ -47,7 +46,6 @@ const SignUpDetails = () => {
       })
       .catch((error) => {
         dispatch(signupError(error.errorMessage));
-        console.log("user post error", error);
       });
   };
 
