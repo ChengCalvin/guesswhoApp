@@ -1,8 +1,12 @@
 import axios from "axios";
 import React, { useState } from "react";
+import { useHistory } from "react-router-dom";
+import { useSelector, useDispatch } from "react-redux";
+import { signupError } from "../../redux/action";
 
 // form, submit, call api endpoint and send data to database
 const SignUpDetails = () => {
+  const userState = useSelector((state) => state.user);
   const [newUser, setNewUser] = useState({
     firstName: "",
     lastName: "",
@@ -10,8 +14,10 @@ const SignUpDetails = () => {
     email: "",
     password: "",
     password_confirm: "",
-    errors: {},
   });
+
+  const dispatch = useDispatch();
+  const history = useHistory();
 
   const inputChangeHandler = (event) => {
     setNewUser({ ...newUser, [event.target.name]: event.target.value });
@@ -36,11 +42,11 @@ const SignUpDetails = () => {
       })
       .then((data) => {
         if (data.success) {
-          console.log("sucess: ", data);
-          //history.push("/login");
-        }
+          history.push("/login");
+        } else dispatch(signupError(data.errorMessage));
       })
       .catch((error) => {
+        dispatch(signupError(error.errorMessage));
         console.log("user post error", error);
       });
   };
@@ -57,6 +63,7 @@ const SignUpDetails = () => {
             onChange={inputChangeHandler}
             required
           />
+          {userState.errorMessage ? <div>{userState.errorMessage}</div> : <></>}
         </div>
         <div>
           <input
@@ -67,6 +74,7 @@ const SignUpDetails = () => {
             onChange={inputChangeHandler}
             required
           />
+          {userState.errorMessage ? <div>{userState.errorMessage}</div> : <></>}
         </div>
         <div>
           <input
