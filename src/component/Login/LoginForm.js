@@ -1,8 +1,16 @@
-import React from "react";
+import React, { useState } from "react";
 
 const LoginForm = () => {
+  const [user, setUser] = useState({
+    email: "",
+    password: "",
+  });
   const loginFormHandler = (event) => {
     event.preventDefault();
+  };
+
+  const inputChangeHandler = (event) => {
+    setUser({ [event.target.name]: event.target.value });
   };
 
   return (
@@ -13,7 +21,7 @@ const LoginForm = () => {
             type="text"
             placeholder="Email"
             name="email"
-            value={newUser.email}
+            value="Email"
             onChange={inputChangeHandler}
             required
           />
@@ -23,7 +31,7 @@ const LoginForm = () => {
             type="password"
             placeholder="password"
             name="password"
-            value={newUser.password}
+            value="Password"
             onChange={inputChangeHandler}
             required
           />
