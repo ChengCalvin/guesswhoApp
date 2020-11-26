@@ -14,9 +14,7 @@ const SignUpDetails = () => {
   });
 
   const inputChangeHandler = (event) => {
-    setNewUser({ [event.target.name]: event.target.value });
-    console.log("name", event.target.name);
-    console.log("value", event.target.value);
+    setNewUser({ ...newUser, [event.target.name]: event.target.value });
   };
 
   const submitFormHandler = (event) => {
@@ -62,7 +60,7 @@ const SignUpDetails = () => {
             type="text"
             placeholder="Your Rank: e.g Platinum 1"
             name="leagueRank"
-            value={newUser.lastName}
+            value={newUser.leagueRank}
             onChange={inputChangeHandler}
             required
           />
