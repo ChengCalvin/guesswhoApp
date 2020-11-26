@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { signupError } from "../../reducers/action";
+import "./SignUpPage.css";
 
 const SignUpDetails = () => {
   const userState = useSelector((state) => state.user);
@@ -53,7 +54,7 @@ const SignUpDetails = () => {
 
   return (
     <div>
-      <form onClick={submitFormHandler}>
+      <form className="form" onClick={submitFormHandler}>
         <div>
           <input
             type="text"

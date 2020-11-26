@@ -18,3 +18,7 @@ body {
   height: fit-content;
   margin: auto;
 }
+
+.form {
+  justify-content: space-between;
+}
