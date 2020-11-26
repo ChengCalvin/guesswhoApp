@@ -2,7 +2,7 @@ import axios from "axios";
 import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
-import { signupError } from "../../redux/action";
+import { signupError } from "../../reducers/action";
 
 const SignUpDetails = () => {
   const userState = useSelector((state) => state.user);
