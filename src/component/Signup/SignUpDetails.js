@@ -40,6 +40,7 @@ const SignUpDetails = () => {
         response.json();
       })
       .then((data) => {
+        console.log(data);
         if (data.success) {
           history.push("/login");
         } else dispatch(signupError(data.errorMessage));
