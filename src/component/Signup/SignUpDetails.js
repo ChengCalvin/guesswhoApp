@@ -32,7 +32,7 @@ const SignUpDetails = () => {
     axios
       .post("https://guessthelolteam.herokuapp.com/api/users", user)
       .then((response) => {
-        response.json();
+        console.log("Post Response: ", response);
       })
       .then((data) => {
         if (data.success) {
