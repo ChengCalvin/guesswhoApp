@@ -40,11 +40,10 @@ const SignUpDetails = () => {
       .post("https://guessthelolteam.herokuapp.com/api/users", user)
       .then((response) => {
         console.log("there is a response");
-        console.log(request);
-        console.log("response from axios: ", response.json());
+        console.log("response from axios: ", response.json()[0]);
       })
       .then((data) => {
-        console.log(data);
+        console.log("json response data: ", data);
         if (data.success) {
           history.push("/login");
         } else dispatch(signupError(data.errorMessage));
