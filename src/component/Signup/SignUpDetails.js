@@ -6,6 +6,7 @@ const SignUpDetails = () => {
   const [newUser, setNewUser] = useState({
     firstName: "",
     lastName: "",
+    leagueRank: "",
     email: "",
     password: "",
     password_confirm: "",
@@ -18,16 +19,18 @@ const SignUpDetails = () => {
     console.log("value", event.target.value);
   };
 
-  const submitFormHandler = () => {
-    console.log("newUser", newUser);
+  const submitFormHandler = (event) => {
+    event.preventDefault();
+
     const user = {
       firstName: newUser.firstName,
       lastName: newUser.lastName,
+      leagueRank: newUser.leagueRank,
       email: newUser.email,
       password: newUser.password,
       password_confirm: newUser.password_confirm,
     };
-
+    // post -> when successful, send to login page -> Send to front with the game
     console.log(user);
   };
 
@@ -41,6 +44,7 @@ const SignUpDetails = () => {
             name="firstName"
             value={newUser.firstName}
             onChange={inputChangeHandler}
+            required
           />
         </div>
         <div>
@@ -50,6 +54,17 @@ const SignUpDetails = () => {
             name="lastName"
             value={newUser.lastName}
             onChange={inputChangeHandler}
+            required
+          />
+        </div>
+        <div>
+          <input
+            type="text"
+            placeholder="Your Rank: e.g Platinum 1"
+            name="leagueRank"
+            value={newUser.lastName}
+            onChange={inputChangeHandler}
+            required
           />
         </div>
         <div>
@@ -59,24 +74,27 @@ const SignUpDetails = () => {
             name="email"
             value={newUser.email}
             onChange={inputChangeHandler}
+            required
           />
         </div>
         <div>
           <input
-            type="text"
+            type="password"
             placeholder="password"
             name="password"
             value={newUser.password}
             onChange={inputChangeHandler}
+            required
           />
         </div>
         <div>
           <input
-            type="text"
+            type="password"
             placeholder="Confirm Password"
             name="password_confirm"
             value={newUser.password_confirm}
             onChange={inputChangeHandler}
+            required
           />
         </div>
         <button type="submit">Create User</button>
