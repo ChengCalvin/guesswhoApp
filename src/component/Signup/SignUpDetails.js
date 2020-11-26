@@ -29,7 +29,20 @@ const SignUpDetails = () => {
       password_confirm: newUser.password_confirm,
     };
     // post -> when successful, send to login page -> Send to front with the game
-    console.log(user);
+    axios
+      .post("https://guessthelolteam.herokuapp.com/api/users", user)
+      .then((response) => {
+        response.json();
+      })
+      .then((data) => {
+        if (data.success) {
+          console.log("sucess: ", data);
+          //history.push("/login");
+        }
+      })
+      .catch((error) => {
+        console.log("user post error", error);
+      });
   };
 
   return (
