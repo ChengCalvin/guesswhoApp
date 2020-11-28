@@ -1,8 +1,9 @@
 import React from "react";
 import SignUpButton from "../Signup/SignUpButton";
+import LoginButton from "../Login/LoginButton";
 import "./Header.css";
 
-const Header = () => {
+const Header = (props) => {
   return (
     <>
       <header className="header">
@@ -10,8 +11,9 @@ const Header = () => {
           <div className="headertitle">
             <h1>League of Legend Team Guessing Game</h1>
           </div>
-          <div>
-            <SignUpButton />
+          <div className="btncontainer">
+            {props.showSignup ? <SignUpButton /> : <></>}
+            {props.showLogin ? <LoginButton /> : <></>}
           </div>
         </div>
       </header>

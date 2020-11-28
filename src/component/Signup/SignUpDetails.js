@@ -1,8 +1,8 @@
 import axios from "axios";
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
-import { signupError } from "../../reducers/action";
+import { getErrorMessage } from "../../reducers/action";
 import "./SignUpPage.css";
 import { register } from "../../serviceWorker";
 
@@ -35,7 +35,7 @@ const SignUpDetails = () => {
       password: newUser.password,
       password_confirm: newUser.password_confirm,
     };
-    console.log("am i running");
+
     axios
       .post("https://guessthelolteam.herokuapp.com/api/users", user)
       .then((response) => {
@@ -44,7 +44,8 @@ const SignUpDetails = () => {
         }
       })
       .catch((error) => {
-        dispatch(signupError(error.response.data.errorMessage));
+        dispatch(getErrorMessage(error.response.data.errorMessage));
+        history.push("/signup");
       });
   };
 

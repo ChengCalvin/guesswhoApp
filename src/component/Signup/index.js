@@ -6,7 +6,7 @@ import "./SignUpPage.css";
 const SignUpPage = () => {
   return (
     <div className="App">
-      <Header />
+      <Header showSignup={false} showLogin={true} />
       <h2>Create Account</h2>
       <div className="infocontainer">
         <SignUpDetails />

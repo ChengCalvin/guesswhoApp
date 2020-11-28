@@ -19,3 +19,9 @@
   width: 55vw;
   margin-left: 33vw;
 }
+
+.btncontainer {
+  display: flex;
+  justify-content: space-between;
+  width: 10rem;
+}

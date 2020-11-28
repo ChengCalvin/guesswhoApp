@@ -8,7 +8,7 @@ const Homepage = () => {
   return (
     <>
       <div className="App">
-        <Header />
+        <Header showSignup={true} showLogin={true} />
         <h2>Guess which league of legend team won</h2>
         <Team />
       </div>
