@@ -23,11 +23,26 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  height: 15rem;
+  height: 25rem;
 }
 
 .inputfield {
   height: 2rem;
   padding: 0.5rem;
   font-size: 1.5rem;
+  background-color: transparent;
+  color: black;
+}
+
+::placeholder {
+  color: black;
+  opacity: 0.7;
+}
+
+.form button {
+  height: 2rem;
+  padding: 0.5rem;
+  font-size: 1rem;
+  background-color: rgb(167, 167, 167);
+  font-size: 1rem;
 }

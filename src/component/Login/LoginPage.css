@@ -1,0 +1,10 @@
+body {
+  background-image: url("../../images/summonerbackground.jpg");
+}
+.LoginPage {
+  text-align: center;
+}
+
+.LoginPage h2 {
+  color: white;
+}
