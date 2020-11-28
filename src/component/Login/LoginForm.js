@@ -30,7 +30,7 @@ const LoginForm = () => {
       dispatch(getErrorMessage("Empty fields"));
     } else {
       axios
-        .get(`http://localhost:5000/users/${user.email}`)
+        .get(`http://guessthelolteam.herokuapp.com/users/${user.email}`)
         .then((response) => {
           console.log("get user response", response);
           if (response.data.loginUser.password !== user.password) {
