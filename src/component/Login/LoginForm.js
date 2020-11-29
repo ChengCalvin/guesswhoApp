@@ -21,13 +21,8 @@ const LoginForm = () => {
   const loginFormHandler = (event) => {
     event.preventDefault();
 
-    const loginUser = {
-      email: user.email,
-      password: user.password,
-    };
-
     if (user.email === "" && user.password === "") {
-      dispatch(getErrorMessage("Empty fields"));
+      dispatch(getErrorMessage("Invalid Email and Password"));
     } else {
       axios
         .get(`http://guessthelolteam.herokuapp.com/users/${user.email}`)
