@@ -2,10 +2,10 @@ import React, { useState } from "react";
 import axios from "axios";
 import { useSelector, useDispatch } from "react-redux";
 import { useHistory } from "react-router-dom";
-import { getErrorMessage } from "../../reducers/action";
+import { getErrorMessage, setLoginStatus } from "../../reducers/action";
 
 const LoginForm = () => {
-  const userState = useSelector((state) => state.user);
+  const userState = useSelector((state) => state);
   const dispatch = useDispatch();
   const history = useHistory();
 
@@ -31,6 +31,8 @@ const LoginForm = () => {
           if (response.data.loginUser.password !== user.password) {
             dispatch(getErrorMessage("Password Invalid"));
           } else {
+            dispatch(setLoginStatus(true, response.data.loginUser));
+            localStorage.setItem("currentUser", response.data.loginUser._id);
             history.push("/");
           }
         })

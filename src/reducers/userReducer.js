@@ -1,7 +1,8 @@
-import { GET_CURRENT_USER, GET_ERRORS } from "./types";
+import { GET_CURRENT_USER, GET_ERRORS, SET_CURRENT_USER } from "./types";
 const initialState = {
-  user: null,
+  user: {},
   errorStatus: null,
+  loginStatus: false,
 };
 
 const userReducer = (state = initialState, action) => {
@@ -16,7 +17,13 @@ const userReducer = (state = initialState, action) => {
     case GET_CURRENT_USER: {
       return {
         ...state,
-        user: action.payload,
+      };
+    }
+    case SET_CURRENT_USER: {
+      return {
+        ...state,
+        user: action.user,
+        loginStatus: action.loginStatus,
       };
     }
     default:

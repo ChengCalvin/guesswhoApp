@@ -25,3 +25,32 @@
   justify-content: space-between;
   width: 10rem;
 }
+
+.userdisplay {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 12rem;
+  height: 2rem;
+  margin-right: 1rem;
+  color: rgb(255, 227, 65);
+  background-color: rgb(136, 136, 136);
+  border-radius: 0.5rem;
+}
+
+.userloggedin {
+  display: flex;
+  width: 15rem;
+  color: white;
+}
+
+.userloggedin img {
+  width: 1.5rem;
+  background-color: gray;
+  padding: 0.1rem;
+  border-radius: 0.5rem;
+}
+
+.userloggedin img:hover {
+  cursor: pointer;
+}
