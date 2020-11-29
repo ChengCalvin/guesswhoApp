@@ -54,6 +54,9 @@ class Team extends Component {
             ))}
           </button>
         </div>
+        <div className="vsicon">
+          <div className="vsiconbackground">VS</div>
+        </div>
         <div className="Team">
           <button
             onClick={() => this.answerClickHandler("Team B")}

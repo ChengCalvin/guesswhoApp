@@ -75,3 +75,20 @@
   background-color: grey;
   cursor: not-allowed;
 }
+
+.vsicon {
+  display: flex;
+  align-items: center;
+  color: white;
+  font-size: 2.5rem;
+}
+
+.vsiconbackground {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 3rem;
+  width: 5rem;
+  background-color: goldenrod;
+  border-radius: 3rem;
+}
