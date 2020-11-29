@@ -1,6 +1,7 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import SignUpButton from "../Signup/SignUpButton";
 import LoginButton from "../Login/LoginButton";
+import axios from "axios";
 import { Link } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { useHistory } from "react-router-dom";
@@ -18,6 +19,18 @@ const Header = (props) => {
     dispatch(setLoginStatus(false, {}));
     history.push("/");
   };
+  //add use effect to check for user logged in?
+  useEffect(() => {
+    const currentUser = localStorage.getItem("currentEmail");
+    const loginStatus = localStorage.getItem("loginStatus");
+    if (loginStatus) {
+      axios
+        .get(`https://guessthelolteam.herokuapp.com/users/${currentUser}`)
+        .then((response) => {
+          dispatch(setLoginStatus(loginStatus, response.data.loginUser));
+        });
+    }
+  });
 
   return (
     <>

@@ -32,7 +32,8 @@ const LoginForm = () => {
             dispatch(getErrorMessage("Password Invalid"));
           } else {
             dispatch(setLoginStatus(true, response.data.loginUser));
-            localStorage.setItem("currentUser", response.data.loginUser._id);
+            localStorage.setItem("currentEmail", response.data.loginUser.email);
+            localStorage.setItem("loginStatus", true);
             history.push("/");
           }
         })
