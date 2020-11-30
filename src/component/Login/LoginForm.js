@@ -27,7 +27,6 @@ const LoginForm = () => {
       axios
         .get(`https://guessthelolteam.herokuapp.com/users/${user.email}`)
         .then((response) => {
-          console.log("get user response", response);
           if (response.data.loginUser.password !== user.password) {
             dispatch(getErrorMessage("Password Invalid"));
           } else {
