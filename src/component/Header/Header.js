@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import SignUpButton from "../Signup/SignUpButton";
 import LoginButton from "../Login/LoginButton";
 import axios from "axios";
