@@ -1,4 +1,10 @@
-import { GET_CURRENT_USER, GET_ERRORS, SET_CURRENT_USER } from "./types";
+import {
+  GET_CURRENT_USER,
+  GET_ERRORS,
+  SET_CURRENT_USER,
+  SET_USER_GAMESCORE,
+  GET_USER_GAMESCORE,
+} from "./types";
 const initialState = {
   user: {},
   errorStatus: null,
@@ -24,6 +30,17 @@ const userReducer = (state = initialState, action) => {
         ...state,
         user: action.user,
         loginStatus: action.loginStatus,
+      };
+    }
+    case SET_USER_GAMESCORE: {
+      return {
+        ...state,
+        user: { ...state.user, gameScore: action.gameScore },
+      };
+    }
+    case GET_USER_GAMESCORE: {
+      return {
+        ...state,
       };
     }
     default:

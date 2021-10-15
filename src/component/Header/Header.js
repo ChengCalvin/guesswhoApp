@@ -5,7 +5,7 @@ import axios from "axios";
 import { Link } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { useHistory } from "react-router-dom";
-import { setLoginStatus } from "../../reducers/action";
+import { setLoginStatus, setUserGameScore } from "../../reducers/action";
 import logoutImg from "../../images/logout.png";
 import "./Header.css";
 
@@ -28,9 +28,10 @@ const Header = (props) => {
         .get(`https://guessthelolteam.herokuapp.com/users/${currentUser}`)
         .then((response) => {
           dispatch(setLoginStatus(loginStatus, response.data.loginUser));
+          dispatch(setUserGameScore(response.data.loginUser.gameScore));
         });
     }
-  });
+  }, []);
 
   return (
     <>

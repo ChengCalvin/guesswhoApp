@@ -2,7 +2,11 @@ import React, { useState } from "react";
 import axios from "axios";
 import { useSelector, useDispatch } from "react-redux";
 import { useHistory } from "react-router-dom";
-import { getErrorMessage, setLoginStatus } from "../../reducers/action";
+import {
+  getErrorMessage,
+  setLoginStatus,
+  setUserGameScore,
+} from "../../reducers/action";
 
 const LoginForm = () => {
   const userState = useSelector((state) => state);
@@ -31,6 +35,7 @@ const LoginForm = () => {
             dispatch(getErrorMessage("Password Invalid"));
           } else {
             dispatch(setLoginStatus(true, response.data.loginUser));
+            dispatch(setUserGameScore(response.data.loginUser.gameScore));
             localStorage.setItem("currentEmail", response.data.loginUser.email);
             localStorage.setItem("loginStatus", true);
             history.push("/");
@@ -65,8 +70,8 @@ const LoginForm = () => {
             onChange={inputChangeHandler}
           />
         </div>
-        {userState.errorStatus === "error" && (
-          <div style={{ color: "red" }}>{userState.errorMessage}</div>
+        {userState.user.errorStatus === "error" && (
+          <div style={{ color: "red" }}>{userState.user.errorMessage}</div>
         )}
         <button type="submit">Login</button>
       </form>

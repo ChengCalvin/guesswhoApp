@@ -34,6 +34,7 @@ const SignUpDetails = () => {
       email: newUser.email,
       password: newUser.password,
       password_confirm: newUser.password_confirm,
+      gameScore: newUser.gameScore,
     };
 
     axios
@@ -52,8 +53,8 @@ const SignUpDetails = () => {
   return (
     <div>
       <form className="form" onSubmit={submitFormHandler}>
-        {userState.errorStatus === "error" && (
-          <div style={{ color: "red" }}>{userState.errorMessage}</div>
+        {userState.user.errorStatus === "error" && (
+          <div style={{ color: "red" }}>{userState.user.errorMessage}</div>
         )}
         <div>
           <input
