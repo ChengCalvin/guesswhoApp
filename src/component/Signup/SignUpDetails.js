@@ -53,8 +53,9 @@ const SignUpDetails = () => {
   return (
     <div>
       <form className="form" onSubmit={submitFormHandler}>
-        {userState.user.errorStatus === "error" && (
-          <div style={{ color: "red" }}>{userState.user.errorMessage}</div>
+        <>{console.log(userState)}</>
+        {userState.errorStatus === "error" && (
+          <div style={{ color: "red" }}>{userState.errorMessage}</div>
         )}
         <div>
           <input
